@@ -1,8 +1,17 @@
 from flask import Flask, request, jsonify, abort
+from flask_cors import CORS
 from marshmallow import Schema, fields, ValidationError
 
 app = Flask(__name__)
 
+CORS(
+    app,
+    resources={r"/members*": {"origins": [
+        "http://localhost:5173",
+        "https://your-frontend-domain.com"
+    ]}},
+    supports_credentials=False  
+)
 
 EBOARD = [
     {
