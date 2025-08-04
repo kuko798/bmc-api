@@ -71,7 +71,6 @@ EBOARD = [
     
 ]
 
-
 class MemberSchema(Schema):
     id        = fields.Int(dump_only=True)
     position  = fields.Str(required=True)
@@ -81,80 +80,84 @@ class MemberSchema(Schema):
     major     = fields.Str(required=True)
     bio       = fields.Str()
 
-member_schema  = MemberSchema()
-members_schema = MemberSchema(many=True)
+member_schema   = MemberSchema()
+members_schema  = MemberSchema(many=True)
 
 
 def find_member(member_id: int):
     return next((m for m in EBOARD if m["id"] == member_id), None)
 
 
-
-@app.route("/members", methods=["GET"])
+@app.get("/members")
 def list_members():
     """Return the entire E-board roster."""
-    return members_schema.jsonify(EBOARD)
+    return jsonify(members_schema.dump(EBOARD)), 200
 
-@app.route("/members/<int:member_id>", methods=["GET"])
+
+@app.get("/members/<int:member_id>")
 def get_member(member_id):
     """Return a single member (404 if not found)."""
     member = find_member(member_id)
-    if not member:
+    if member is None:
         abort(404, description="Member not found.")
-    return member_schema.jsonify(member)
+    return jsonify(member_schema.dump(member)), 200
 
-@app.route("/members", methods=["POST"])
+
+@app.post("/members")
 def create_member():
-    """Create a new member and return it with 201 status."""
+    """Create a new member."""
     try:
-        new_member = member_schema.load(request.get_json())
+        new_member = member_schema.load(request.get_json())  
     except ValidationError as err:
         return jsonify(err.messages), 400
 
-    new_member["id"] = (max(m["id"] for m in EBOARD) + 1) if EBOARD else 1
+    new_member["id"] = max((m["id"] for m in EBOARD), default=0) + 1
     EBOARD.append(new_member)
-    return member_schema.jsonify(new_member), 201
+    return jsonify(member_schema.dump(new_member)), 201
 
-@app.route("/members/<int:member_id>", methods=["PUT"])
-def update_member(member_id):
-    """Replace an existing member (create if absent)."""
+
+@app.put("/members/<int:member_id>")
+def replace_member(member_id):
+    """Full replace (or create) a member."""
     try:
-        updates = member_schema.load(request.get_json())
+        data = member_schema.load(request.get_json())
     except ValidationError as err:
         return jsonify(err.messages), 400
 
     member = find_member(member_id)
     if member:
-        member.update(updates)
-        return member_schema.jsonify(member)
-    else: 
-        updates["id"] = member_id
-        EBOARD.append(updates)
-        return member_schema.jsonify(updates), 201
+        member.update(data)
+        member["id"] = member_id         
+        return jsonify(member_schema.dump(member)), 200
+    else:
+        data["id"] = member_id
+        EBOARD.append(data)
+        return jsonify(member_schema.dump(data)), 201
 
-@app.route("/members/<int:member_id>", methods=["PATCH"])
+
+@app.patch("/members/<int:member_id>")
 def patch_member(member_id):
     """Partial update."""
     member = find_member(member_id)
-    if not member:
+    if member is None:
         abort(404, description="Member not found.")
 
-  
     try:
         updates = member_schema.load(request.get_json(), partial=True)
     except ValidationError as err:
         return jsonify(err.messages), 400
 
     member.update(updates)
-    return member_schema.jsonify(member)
+    return jsonify(member_schema.dump(member)), 200
 
-@app.route("/members/<int:member_id>", methods=["DELETE"])
+
+@app.delete("/members/<int:member_id>")
 def delete_member(member_id):
     """Delete a member (idempotent)."""
     member = find_member(member_id)
     if member:
         EBOARD.remove(member)
-    return "", 204  
+    return "", 204
 
 
 @app.errorhandler(404)
@@ -165,5 +168,6 @@ def not_found(err):
 def bad_request(err):
     return jsonify(error=str(err)), 400
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
