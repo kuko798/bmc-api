@@ -17,6 +17,7 @@ EBOARD = [
     {
       "position": "Co-President",
       "name": "Kobe Uko",
+      "img": "ebimg\IMG_E6074.JPG",
       "hometown": "St.Louis, MO",
       "year": "Senior",
       "major": "Computer Science",
@@ -26,6 +27,7 @@ EBOARD = [
     {
       "position": "Co-President",
       "name": "Lateef Saheed",
+      "img": "ebimg\IMG_E6073.JPG",
       "hometown": "Appleton, WI",
       "year": "Senior",
       "major": "Biology",
@@ -35,6 +37,7 @@ EBOARD = [
     {
       "position": "Secretary",
       "name": "Matthias Dagne",
+      "img": "ebimg\IMG_E6069.JPG",
       "hometown": "Chicago, IL",
       "year": "Senior",
       "major": "Political Science",
@@ -44,6 +47,7 @@ EBOARD = [
     {
       "position": "Communications Chair",
       "name": "Nate Mcginnis",
+      "img": "ebimg\IMG_E6070.JPG",
       "hometown": "Northbrook, IL",
       "year": "Senior",
       "major": "Political Science",
@@ -53,6 +57,7 @@ EBOARD = [
     {
       "position": "Events Coordinator",
       "name": "Richard Kariuki",
+      "img": "ebimg\IMG_E6070.JPG",
       "hometown": "Rochester, MN",
       "year": "Junior",
       "major": "Materials Science & Engineering",
@@ -62,6 +67,7 @@ EBOARD = [
     {
       "position": "Digital Network Chair",
       "name": "Henos Aman",
+      "img": "ebimg\IMG_E6068.JPG",
       "hometown": "Chicago, IL",
       "year": "Senior",
       "major": "Finance and Legal Studies",
@@ -71,6 +77,7 @@ EBOARD = [
     {
       "position": "Treasurer",
       "name": "Isaiah Dobbins",
+      "img": "ebimg\IMG_E6072.JPG",
       "hometown": "Novi, MI",
       "year": "Senior",
       "major": "Neurobiology and Music",
