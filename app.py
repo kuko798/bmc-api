@@ -90,6 +90,7 @@ EBOARD = [
 class MemberSchema(Schema):
     id        = fields.Int(dump_only=True)
     position  = fields.Str(required=True)
+    img       = fields.Str(required=False)
     name      = fields.Str(required=True)
     hometown  = fields.Str(required=True)
     year      = fields.Str(required=True)
