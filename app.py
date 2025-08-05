@@ -17,7 +17,7 @@ EBOARD = [
     {
       "position": "Co-President",
       "name": "Kobe Uko",
-      "img": "ebimg\IMG_E6074.JPG",
+      "img": "https://raw.githubusercontent.com/kuko798/KobeUko/refs/heads/main/ColorStack%20Headshots3801.JPG",
       "hometown": "St.Louis, MO",
       "year": "Senior",
       "major": "Computer Science",
@@ -27,7 +27,7 @@ EBOARD = [
     {
       "position": "Co-President",
       "name": "Lateef Saheed",
-      "img": "ebimg\IMG_E6073.JPG",
+      "img": "https://github.com/kuko798/bmc-api/blob/main/ebimg/IMG_E6073.JPG?raw=true",
       "hometown": "Appleton, WI",
       "year": "Senior",
       "major": "Biology",
@@ -37,7 +37,7 @@ EBOARD = [
     {
       "position": "Secretary",
       "name": "Matthias Dagne",
-      "img": "ebimg\IMG_E6069.JPG",
+      "img": "https://github.com/kuko798/bmc-api/blob/main/ebimg/IMG_E6069.JPG?raw=true",
       "hometown": "Chicago, IL",
       "year": "Senior",
       "major": "Political Science",
@@ -47,7 +47,7 @@ EBOARD = [
     {
       "position": "Communications Chair",
       "name": "Nate Mcginnis",
-      "img": "ebimg\IMG_E6070.JPG",
+      "img": "https://github.com/kuko798/bmc-api/blob/main/ebimg/IMG_E6071.JPG?raw=true",
       "hometown": "Northbrook, IL",
       "year": "Senior",
       "major": "Political Science",
@@ -57,7 +57,7 @@ EBOARD = [
     {
       "position": "Events Coordinator",
       "name": "Richard Kariuki",
-      "img": "ebimg\IMG_E6070.JPG",
+      "img": "https://github.com/kuko798/bmc-api/blob/main/ebimg/IMG_E6070.JPG?raw=true",
       "hometown": "Rochester, MN",
       "year": "Junior",
       "major": "Materials Science & Engineering",
@@ -67,7 +67,7 @@ EBOARD = [
     {
       "position": "Digital Network Chair",
       "name": "Henos Aman",
-      "img": "ebimg\IMG_E6068.JPG",
+      "img": "https://github.com/kuko798/bmc-api/blob/main/ebimg/IMG_E6068.JPG?raw=true",
       "hometown": "Chicago, IL",
       "year": "Senior",
       "major": "Finance and Legal Studies",
@@ -77,7 +77,7 @@ EBOARD = [
     {
       "position": "Treasurer",
       "name": "Isaiah Dobbins",
-      "img": "ebimg\IMG_E6072.JPG",
+      "img": "https://github.com/kuko798/bmc-api/blob/main/ebimg/IMG_E6072.JPG?raw=true",
       "hometown": "Novi, MI",
       "year": "Senior",
       "major": "Neurobiology and Music",
